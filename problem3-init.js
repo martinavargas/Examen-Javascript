@@ -378,26 +378,18 @@ const users = [
   },
 ];
 
-function usersAndMovies() {
-  let usersData = users.map(function (user) {
-    let userNameAndEmail = {
-      name: user.name,
-      email: user.email,
-      movies: [],
-    };
-    return userNameAndEmail;
+function getUserMovies(users, movies) {
+  const userMovies = [];
+  users.map(function(user) {
+    const userEmail = user.email;
+    const userName = user.name;
+    const userMoviesWatched = movies.filter(function(movie) {
+      return movie.userId === user.id;
+    });
+    if (userMoviesWatched.length > 0) {
+      const userMovieTitle = userMoviesWatched[0].movie;
+      userMovies.push({ name: userName, email: userEmail, movie: userMovieTitle });
+    }
   });
-
-  let totalMovies = movies.map(function (movie) {
-    let allMovies = {
-      movies: movie.movie,
-    };
-    return allMovies;
-  });
-
-  usersData.movies.push(totalMovies);
-
-  let listUsersWithMovie = [usersData];
-  return listUsersWithMovie;
+  return userMovies;
 }
-console.log(usersAndMovies());
