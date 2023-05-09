@@ -47,8 +47,5 @@ function timeFromTheThird() {
   let minutesBetweenDates = Math.floor(diference / mins);
   diference -= minutesBetweenDates * mins;
 
-  console.log(
-    `Pasaron ${daysBetweenDates} días, ${hoursBetweenDates} horas y ${minutesBetweenDates} minutos desde el ${humanizeDate()}`
-  );
+  return `Pasaron ${daysBetweenDates} días, ${hoursBetweenDates} horas y ${minutesBetweenDates} minutos desde el ${humanizeDate()}`
 }
-timeFromTheThird();
