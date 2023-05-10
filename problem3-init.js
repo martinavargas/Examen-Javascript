@@ -380,15 +380,19 @@ const users = [
 
 function listUsersMovies(users, movies) {
   const userMovies = [];
-  users.map(function(user) {
+  users.map(function (user) {
     const userEmail = user.email;
     const userName = user.name;
-    const userMoviesWatched = movies.filter(function(movie) {
+    const userMoviesWatched = movies.filter(function (movie) {
       return movie.userId === user.id;
     });
     if (userMoviesWatched.length > 0) {
       const userMovieTitle = userMoviesWatched[0].movie;
-      userMovies.push({ name: userName, email: userEmail, movie: userMovieTitle });
+      userMovies.push({
+        name: userName,
+        email: userEmail,
+        movie: userMovieTitle,
+      });
     }
   });
   return userMovies;
