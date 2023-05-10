@@ -378,7 +378,7 @@ const users = [
   },
 ];
 
-function getUserMovies(users, movies) {
+function listUsersMovies(users, movies) {
   const userMovies = [];
   users.map(function(user) {
     const userEmail = user.email;
